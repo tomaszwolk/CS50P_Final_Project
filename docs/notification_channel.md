@@ -1,0 +1,1 @@
+::: project_notification_channel_class

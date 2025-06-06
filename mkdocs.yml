@@ -1,0 +1,22 @@
+site_name: CS50 Python Final Project
+
+theme:
+  name: "material"
+
+plugins:
+  - mkdocstrings
+  - search
+  - mermaid2
+
+nav:
+  - Start: index.md
+  - Tutorials:
+    - Basics: tutorials.md
+    - Google Cloud Project: google_cloud.md
+    - Google Application Credentials: google_app_cred.md
+  - Reference:
+    - Main: main.md
+    - Config Class: config.md
+    - Notification Channel Class: notification_channel.md
+    - Event Data: event_data.md
+    - Logging: logging.md
