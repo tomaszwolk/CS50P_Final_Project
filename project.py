@@ -74,7 +74,7 @@ app = Flask(__name__)
 # Timezone and last_update_timestamp needed to validate Post requests
 # Choose your serwer timezone
 SERVER_TIMEZONE = timezone(timedelta(hours=0))
-LAST_UPDATE_TIMESTAMP = datetime(2025, 4, 1, 8, 0, tzinfo=SERVER_TIMEZONE)
+last_update_timestamp = datetime(2025, 4, 1, 8, 0, tzinfo=SERVER_TIMEZONE)
 
 CREDENTIALS = None
 TARGET_CREDENTIALS = None
@@ -88,19 +88,17 @@ def main() -> str:
         HTTP status code
     """
 
-    global CREDENTIALS
-    global TARGET_CREDENTIALS
-    global LAST_UPDATE_TIMESTAMP
+    global last_update_timestamp
 
     time_now = datetime.now(timezone.utc)
     resource_state = NotificationChannel.validate_post_request(
-        time_now, LAST_UPDATE_TIMESTAMP
+        time_now, last_update_timestamp
     )
     if resource_state != "exists":
         return resource_state
 
     # If resource_state == "exists", then update LAST_UPDATE_TIMESTAMP and last modified events
-    LAST_UPDATE_TIMESTAMP = time_now
+    last_update_timestamp = time_now
     try:
         # Building the service to retrieve events from main calendar
         service = build(

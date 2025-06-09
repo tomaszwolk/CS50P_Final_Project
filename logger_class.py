@@ -70,7 +70,7 @@ class Logger:
     logger.addHandler(file_handler)
 
     @classmethod
-    def debug(cls, *text: str, **kwargs: dict) -> None:
+    def debug(cls, *text: str, **kwargs: dict[str, str]) -> None:
         """Log debug method"""
         if kwargs:
             cls.logger.debug(kwargs.get("kwargs", kwargs))
@@ -81,7 +81,7 @@ class Logger:
             cls.logger.debug("Debug level log")
 
     @classmethod
-    def info(cls, *text: str, **kwargs: dict) -> None:
+    def info(cls, *text: str, **kwargs: dict[str, str]) -> None:
         """Log info method"""
         if kwargs:
             cls.logger.info(kwargs.get("kwargs", kwargs))
@@ -90,7 +90,7 @@ class Logger:
             cls.logger.info(log_text)
 
     @classmethod
-    def warning(cls, *text: str, **kwargs: dict) -> None:
+    def warning(cls, *text: str, **kwargs: dict[str, str]) -> None:
         """Log warning method"""
         if kwargs:
             cls.logger.warning(kwargs.get("kwargs", kwargs))
@@ -99,7 +99,7 @@ class Logger:
             cls.logger.warning(log_text)
 
     @classmethod
-    def error(cls, *text: str, **kwargs: dict) -> None:
+    def error(cls, *text: str, **kwargs: dict[str, str]) -> None:
         """Log error method"""
         if kwargs:
             cls.logger.error(kwargs.get("kwargs", kwargs))
@@ -108,7 +108,7 @@ class Logger:
             cls.logger.error(log_text, exc_info=True)
 
     @classmethod
-    def critical(cls, *text: str, **kwargs: dict) -> None:
+    def critical(cls, *text: str, **kwargs: dict[str, str]) -> None:
         """Log critical method"""
         if kwargs:
             cls.logger.critical(kwargs.get("kwargs", kwargs))
